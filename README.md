@@ -8,7 +8,7 @@ Note2: If an older version of NS-3 is being used (earlier to 3.36.1), the respec
 ./waf --run scratch/userProgramName
 
 Note3: First, use the following command to allow permission for all the bash scripts:
-chmode +x config.sh automation.sh gnu_configure.sh
+chmod +x param_dics_display.sh config.sh automation.sh gnu_configure.sh
 
 Phase-I
 Step1: Open the script file name ‘param_disc_display.sh’
