@@ -2,7 +2,7 @@
 An Automation Tool for Simulation Analysis of Wireless Ad Hoc Networks Using NS-3
 Users are required to go through the following instructions
 
-Note1: Keep all the files (param_dics_display.sh, config.sh, automation.sh, insert_line, metrics_computation.awk, statistics_computation.awk) in the same directory where NS-3 is installed. 
+Note1: Keep the files Name (param_dics_display.sh, config.sh, automation.sh, insert_line, metrics_computation.awk, statistics_computation.awk) in the same directory where NS-3 is installed. 
 
 Note2: If an older version of NS-3 is being used (earlier to 3.36.1), the respective command at line number 32 of 'automation.sh' must be replaced with-
 ./waf --run scratch/userProgramName
