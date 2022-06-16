@@ -1,0 +1,6 @@
+{
+Time::SetResolution (Time::NS);
+using namespace std;
+RngSeedManager::SetSeed(1);  
+RngSeedManager::SetRun(1);
+
