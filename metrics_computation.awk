@@ -94,8 +94,6 @@ if ($1=="t" && $31==mac_add(sprintf ("%02x",($4+1))) && $81=="RERR" && $85=="Unr
 
 #for Payload (data packets) Analysis
 
-if($67=="10.1.1.1" && $69=="10.1.1.3"){
-
 if ($1=="t" && $10=="Tx" && $79=="Payload" && $31==mac_add(sprintf ("%02x",($4+1)))){
 	count_payload++;
 	t_mac_retry[count_payload]=$22;
@@ -149,8 +147,6 @@ if ($1=="r" && $11=="RxOk" && $29==mac_add(sprintf ("%02x",($5+1))) && $69==(bas
 
 }
 	
-}
-
 END{
 Routing_Overhead_S = (Total_RREQ_Packet_Size + Total_RREP_Packet_Size + Total_H_M_Packet_Size + Total_RREP_ACK_Packet_Size + Total_RERR_Packet_Size)
 Routing_Overhead_P = (rreq+rrep+rrep_ack+t_rerr+hello_message)
