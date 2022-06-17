@@ -5,7 +5,7 @@ modify_metrics_data_file_name=$metrics_data_file_name-$name_according_x_axis-$k-
 ref_value=$k
 
 cd "$ns3_path"/ns-allinone-$ns3_version/ns-$ns3_version/scratch || exit
-cp $user_program_name $working_on_user_program_file
+cp $user_program_name_cp $working_on_user_program_file
 cp "$ns3_path"/insert_line $ns3_path/ns-allinone-$ns3_version/ns-$ns3_version/scratch
 sed -i '/SetSeed(/d' $working_on_user_program_file
 sed -i '/SetRun(/d' $working_on_user_program_file
