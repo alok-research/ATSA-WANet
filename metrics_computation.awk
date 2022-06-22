@@ -201,8 +201,12 @@ printf ("Routing_Overhead_Packets_By_AODV," Routing_Overhead_P"\n")
 printf ("Routing_Overhead_Size_By_AODV," Routing_Overhead_S"\n")
 if (r_packet!=0){
 printf ("Average_Hop_Count,"total_hop_count/r_packet"\n")
-printf ("Route_Error_Overhead,"t_rerr"\n")
 printf ("Normalized_Routing_Load," Routing_Overhead_S/Total_r_Packet_Size"\n")
 }
+else{
+printf ("Average_Hop_Count,"total_hop_count"\n")
+printf ("Normalized_Routing_Load," Routing_Overhead_S"\n")
+}
+printf ("Route_Error_Overhead,"t_rerr"\n")
 printf "\n"
 }
