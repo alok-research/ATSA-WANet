@@ -38,6 +38,7 @@ for ((iteration=1; iteration<=$run; iteration++))
 		cd ~
 		cd "$ns3_path"/$directory
 		mv "$ns3_path"/$directory/$tr_data_file_name "$ns3_path"/$directory/$modify_tr_data_file_name-$iteration--$tr_data_file_name
+		cp $modify_tr_data_file_name-$iteration--$tr_data_file_name "$ns3_path"/$directory/$tr_directory
 		sed -i 's/\// /g' $modify_tr_data_file_name-$iteration--$tr_data_file_name
 		sed -i 's/)/ )/g' $modify_tr_data_file_name-$iteration--$tr_data_file_name
 		sed -i 's/(/( /g' $modify_tr_data_file_name-$iteration--$tr_data_file_name
