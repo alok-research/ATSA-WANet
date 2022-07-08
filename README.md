@@ -10,6 +10,10 @@ Note2: If an older version of NS-3 is being used (earlier to 3.36.1), the respec
 Note3: First, use the following command to allow permission for all the bash scripts:
 chmod +x param_dics_display.sh config.sh automation.sh gnu_configure.sh
 
+Note4: ensure gnuplot installed or not in your machine. if not installed then install by the following command (for ubuntu):
+sudo apt-get update
+sudo apt-get -y install gnuplot
+
 Phase-I
 Step1: Open the script file name ‘param_disc_display.sh’
 Step2: Provide NS-3 version (installed in user machine in which user wants to execute a program)
