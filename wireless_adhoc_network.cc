@@ -120,7 +120,6 @@ wifiPhy.EnableAsciiAll (ascii.CreateFileStream ("wireless_adhoc.tr"));
 Simulator::Stop(Seconds(stop_time));		
 Simulator::Run();
 Simulator::Destroy();	
-			
 return 0;
 }
 
