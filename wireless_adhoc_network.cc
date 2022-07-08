@@ -8,7 +8,6 @@
 #include "ns3/position-allocator.h"
 #include "ns3/applications-module.h"
 #include "ns3/network-module.h"
-#include "ns3/flow-monitor-module.h"
 
 using namespace ns3;
 
@@ -117,35 +116,9 @@ AnimationInterface anim ("wireless_adhoc.xml");
 
 AsciiTraceHelper ascii;
 wifiPhy.EnableAsciiAll (ascii.CreateFileStream ("wireless_adhoc.tr"));
-FlowMonitorHelper flowmonHelper;
-Ptr<FlowMonitor> flowmon = flowmonHelper.InstallAll ();
 
 Simulator::Stop(Seconds(stop_time));		
 Simulator::Run();
-Ptr<Ipv4FlowClassifier> classifier = DynamicCast<Ipv4FlowClassifier> (flowmonHelper.GetClassifier ());
-std::map<FlowId, FlowMonitor::FlowStats> stats = flowmon->GetFlowStats ();
-
-for (std::map<FlowId, FlowMonitor::FlowStats>::const_iterator iter = stats.begin (); iter != stats.end (); ++iter)
-    {
-	  Ipv4FlowClassifier::FiveTuple t = classifier->FindFlow (iter->first);
-
-if ((t.sourceAddress == Ipv4Address("10.1.1.1") && t.destinationAddress == Ipv4Address("10.1.1.3")))
-       {
-          //NS_LOG_UNCOND("Run = " <<i <<"\t"<< "Run Number = "<<SeedManager::GetRun()<<" **************************************");
-  	  std::cout<<"Flow ID: " << iter->first << " Src Addr " << t.sourceAddress << " Dst Addr " << t.destinationAddress<<"\n";
-	   std::cout<<"First Tx Packet Time (Sec) = " << iter->second.timeFirstTxPacket.GetSeconds()<<"\n";
-    	   std::cout<<"Total Tx Packets = " << iter->second.txPackets<<"\n";
-	   std::cout<<"Total Tx Bytes with Header(28 Bytes on every Packets) = " << iter->second.txBytes<<"\n";
-    	   std::cout<<"Total Rx Packets = " << iter->second.rxPackets<<"\n";
-	   std::cout<<"Total Rx Bytes with Header(28 Bytes on every Packets) = " << iter->second.rxBytes<<"\n";
-           std::cout<<"Last  Rx Packet Time (Sec) = " << iter->second.timeLastRxPacket.GetSeconds()<<"\n";
-	   std::cout<<"Mean Delay (sec) = " << iter->second.delaySum.GetSeconds() / iter->second.rxPackets<<"\n";
-           std::cout<<"Mean Jitter (sec) = " << iter->second.jitterSum.GetSeconds() / (iter->second.rxPackets - 1)<<"\n";
-           std::cout<<"PDR = " << iter->second.rxPackets * 100 / iter->second.txPackets <<" %"<<"\n";
-    	   std::cout<<"Throughput (Kbps): " << iter->second.rxBytes * 8.0 / (iter->second.timeLastRxPacket.GetSeconds()-iter->second.timeFirstTxPacket.GetSeconds()) / 1024  << " Kbps" <<"\n";
-     	 }
-}
-
 Simulator::Destroy();	
 			
 return 0;
