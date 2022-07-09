@@ -11,7 +11,7 @@ ns3_version=3.36.1		 # change the installed 'ns-allinone-xyz' version (xyz) in w
 #################################
 
 #######################################################
-user_program_name=wireless_adhoc_network_grid.cc	# change user program name which user wants to execute. It must be put in scrach ####################################################### directory of ns-allinone-xyz.
+user_program_name=wireless_adhoc_network.cc	# change user program name which user wants to execute. It must be put in scrach ####################################################### directory of ns-allinone-xyz.
 
 ################################
 run=10			        # change no. of iteration as per requred
