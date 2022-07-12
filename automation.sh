@@ -46,7 +46,7 @@ for ((iteration=1; iteration<=$run; iteration++))
 		sed -i 's/,//g' $modify_tr_data_file_name-$iteration--$tr_data_file_name
 		echo
 		echo "*** Now, start metrics data computation for trace file name '$modify_tr_data_file_name-$iteration--$tr_data_file_name' ***"
-		echo "#" `date` >>$modify_metrics_data_file_name
+		echo "#" `date` >$modify_metrics_data_file_name
 		sed -e 's/run=1/run='$iteration'/g' metrics_computation1.awk >metrics_computation1_$iteration.awk
 		awk -f metrics_computation1_$iteration.awk $modify_tr_data_file_name-$iteration--$tr_data_file_name >>$modify_metrics_data_file_name
 		echo "*** metrics data computation has been done and data has been stored in a file- '$modify_metrics_data_file_name' ***"
