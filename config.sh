@@ -146,7 +146,7 @@ for l in {1..3..1} 	# Change here value of variable as above- var_value_first, v
 	for k in 10 20 30 40 50 60						# put the minimum and maximun value of x-axis
 		do
 		cd "$ns3_path"/ns-allinone-$ns3_version/ns-$ns3_version/scratch
-		simulation_time='$k'
+		simulation_time=$k
 #############################################################################################################		
 		sed -i '/uint32_t stop_time=/d' $user_program_name_cp					#
 		sed -i 's/.*CommandLine.*/uint32_t stop_time='$k';\n&/' $user_program_name_cp		#
@@ -155,7 +155,8 @@ for l in {1..3..1} 	# Change here value of variable as above- var_value_first, v
 		cd ~
 		cd "$ns3_path"/$directory
 		sed -e 's/base_ip="10.1.1."/base_ip="'$network_base_ip'"/g' metrics_computation.awk > metrics_computation1.awk
-		sed -i '/^simulation_time/c simulation_time='$simulation_stop_time'' metrics_computation1.awk
+		sed -i '/simulation_time=/d' metrics_computation1.awk
+		sed -i 's/.*base_ip=.*/simulation_time='$simulation_time'\n&/' metrics_computation1.awk
 		cd ~
  		cd "$ns3_path"
 		export k l n_count x_min x_max x_delta
